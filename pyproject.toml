@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ui-ux-pro-max"
+version = "2.6.0"
+description = "UI/UX Pro Max - High-Throughput Design Intelligence Engine for AI Coding Agents and Developers"
+readme = "README.md"
+authors = [
+    { name = "Ptd Agent Ecosystem", email = "ptd2610@gmail.com" }
+]
+license = { text = "MIT" }
+requires-python = ">=3.9"
+keywords = [
+    "ui",
+    "ux",
+    "design-system",
+    "ai-agent",
+    "antigravity",
+    "claude-code",
+    "cursor",
+    "styles",
+    "colors",
+    "typography",
+    "wcag"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: User Interfaces",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov",
+]
+
+[project.scripts]
+uipro = "ui_ux_pro_max.cli:main"
+ui-ux-pro-max = "ui_ux_pro_max.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["ui_ux_pro_max*"]
+
+[tool.setuptools.package-data]
+ui_ux_pro_max = [
+    "data/*.csv",
+    "data/*.json",
+    "data/stacks/*.csv",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests", "src/ui-ux-pro-max/scripts/tests"]
+python_files = ["test_*.py"]
